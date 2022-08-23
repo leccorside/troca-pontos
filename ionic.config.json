@@ -1,0 +1,7 @@
+{
+  "name": "troca-pontos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

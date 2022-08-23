@@ -1,0 +1,21 @@
+
+<ion-content class="ion-padding">
+
+  <ion-icon name="arrow-back" class="icone_voltar" (click)="voltar()"></ion-icon>
+
+  <div class="logo">
+    <img src="../../../assets/img/logo.png">
+  </div>
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" shape="round" class="botao" color="tema" (click)="esqueci()">Recuperar</ion-button>
+
+  </ion-list>
+</ion-content>

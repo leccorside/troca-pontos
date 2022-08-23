@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Meus dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div class="form" *ngFor="let user of users" class="ion-padding">
+
+  <ion-list class="mt-20" >
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Sexo</ion-label>
+      <ion-select interface="popover" [(ngModel)]="sexo">
+        <ion-select-option value="Feminino">Feminino</ion-select-option>
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Data de Nascimento</ion-label>
+      <ion-input 
+      type="tel"  
+      onkeypress="mascara(this, nascimento)" 
+      [(ngModel)]="nascimento" 
+      maxlength="10"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Telefone</ion-label>
+      <ion-input 
+      type="tel" 
+      onkeypress="mascara(this, telefone2)" 
+      [(ngModel)]="telefone" 
+      maxlength="15"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" shape="round" class="botao" color="tema" (click)="salvar()">Salvar</ion-button>
+
+  </ion-list>
+
+</div>
+
+</ion-content>

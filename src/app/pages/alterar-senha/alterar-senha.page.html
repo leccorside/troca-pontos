@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Altere sua senha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div class="form" class="ion-padding">
+
+  <ion-list class="mt-20" >
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Nova senha</ion-label>
+      <ion-input type="text" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" style="color: #999;">Confirme a senha</ion-label>
+      <ion-input type="text" [(ngModel)]="senha2"></ion-input>
+    </ion-item>
+
+
+    <ion-button expand="full" shape="round" class="botao" color="tema" (click)="salvar()">Salvar</ion-button>
+
+  </ion-list>
+
+</div>
+
+</ion-content>

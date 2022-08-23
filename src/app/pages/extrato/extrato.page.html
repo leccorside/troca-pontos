@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Extrato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="conteudo">
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="pontos">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let ponto2 of pontosSomados">
+          <div class="quad1">
+            <ion-icon name="wallet-outline"></ion-icon><br>
+            <span class="pontos1">SALDO</span><br>
+            <span>{{ponto2.total}} <b>pts</b></span>
+          </div>
+        </ion-col>
+        <ion-col *ngFor="let ponto3 of pontosExpirados">
+          <div class="quad1">
+            <ion-icon name="hourglass-outline"></ion-icon><br>
+            <span class="pontos1">EXPIRADOS</span><br>
+            <span *ngIf="ponto3.total != null">{{ponto3.total}} <b>pts</b></span>
+            <span *ngIf="ponto3.total == null">0 <b>pts</b></span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div class="historico">
+
+    <p class="p-4 ion-padding">Histórico de movimentação</p>
+
+    <!-- Segment with secondary color -->
+    <ion-segment [(ngModel)]="historico" color="primary" class="segmente1">
+      <ion-segment-button value="todos">
+        <ion-label>PONTOS</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="resgate">
+        <ion-label>RESGATES</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="expirados">
+        <ion-label>EXPIRADOS</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </div>
+
+  <div [ngSwitch]="historico">
+    <ion-list *ngSwitchCase="'todos'">
+      <div class="conteudo-todos ion-padding">
+
+        <div class="row example-basic">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+              <ul class="timeline">
+
+                  <li class="timeline-item" *ngFor="let ponto of pontos">
+                      <div class="timeline-info">
+                          <span>{{ponto.data_entrada | date: 'dd/MM/yyyy'}}</span>
+                      </div>
+                      <div class="timeline-marker"></div>
+                      <div class="timeline-content">
+                          <h3 class="timeline-title">{{ponto.empresa}}</h3>
+                          <p>+{{ponto.pontos}} <b>pts</b></p>
+                      </div>
+                  </li>
+                  
+              </ul>
+          </div>
+      </div>
+
+      </div>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'resgate'">
+      <div class="conteudo-todos ion-padding">
+
+        <div class="row example-basic">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+              <ul class="timeline">
+
+                  <li class="timeline-item" *ngFor="let ponto of pontos3">
+                      <div class="timeline-info">
+                          <span>{{ponto.data_resgate | date: 'dd/MM/yyyy'}}</span>
+                      </div>
+                      <div class="timeline-marker"></div>
+                      <div class="timeline-content">
+                          <h3 class="timeline-title">{{ponto.empresa}}</h3>
+                          <p class="p4">
+                            {{ponto.produto}} <br>
+                            <span class="p-resgate">{{ponto.pontos}} <b>pts</b></span></p>
+                      </div>
+                  </li>
+                  
+              </ul>
+          </div>
+        </div>
+
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'expirados'">
+      <div class="conteudo-todos ion-padding">
+
+        <div class="row example-basic">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+              <ul class="timeline">
+
+                  <li class="timeline-item" *ngFor="let ponto of pontos2">
+                      <div class="timeline-info">
+                          <span>{{ponto.data_expiracao | date: 'dd/MM/yyyy'}}</span>
+                      </div>
+                      <div class="timeline-marker"></div>
+                      <div class="timeline-content">
+                          <h3 class="timeline-title">{{ponto.empresa}}</h3>
+                          <p class="p-expirado">-{{ponto.pontos}} <b>pts</b></p>
+                      </div>
+                  </li>
+                  
+              </ul>
+          </div>
+        </div>
+
+      </div>
+    </ion-list>
+
+  </div>
+
+</div>
+
+</ion-content>

@@ -1,0 +1,46 @@
+ion-content{
+    margin-bottom: 50px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: -3px;
+}
+
+.logo img{
+    width: 100%;
+    max-width: 100px;
+}
+
+.info1{
+    font-size: 14px;
+    text-align: center;
+}
+
+.info1 span{
+    font-weight: 700;
+}
+
+.botao{
+    background: var(--gradiente-tema) !important;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+
+.icone_voltar {
+    font-size: 20px;
+    position: relative;
+    z-index: 999;
+}
+
+.span-title{
+    position: absolute;
+    left: 70px;
+    font-weight: 700;
+}
+
+.mt-20{
+    margin-top: 20px;
+}

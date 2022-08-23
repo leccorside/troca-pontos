@@ -1,0 +1,3 @@
+function funcaobotao(){
+    alert('alerta');
+}

@@ -1,0 +1,55 @@
+
+<ion-content>
+
+  <div class="backgroud">
+    <div class="overlay"></div>
+    <div class="dadosperfil">
+      <div class="foto">
+        <span>{{inicial}}</span>
+      </div>
+      <div class="dados">
+        <span class="nome">
+          {{nome}}
+        </span><br>
+        <span class="email">
+          {{email}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="conteudo ion-padding">  
+    
+    <!-- List of Input Items -->
+    <ion-list>
+
+      <ion-item [routerLink]="['/meus-dados']">
+        <ion-icon name="person-outline" class="ico-menu1"></ion-icon>
+        <ion-label> Meus dados</ion-label>
+      </ion-item>
+
+      <ion-item [routerLink]="['/alterar-senha']" routerdirection="forward">
+        <ion-icon name="key-outline" class="ico-menu1"></ion-icon>
+        <ion-label>Alterar minha senha</ion-label>
+      </ion-item>
+
+      <ion-item [routerLink]="['/extrato']">
+        <ion-icon name="document-text-outline" class="ico-menu1"></ion-icon>
+        <ion-label>Extrato</ion-label>
+      </ion-item>
+
+      <ion-item [routerLink]="['/regulamento']">
+        <ion-icon name="newspaper-outline" class="ico-menu1"></ion-icon>
+        <ion-label>Regulamento</ion-label>
+      </ion-item>
+
+      <ion-item (click)="presentAlertConfirm()">
+        <ion-icon name="exit-outline" class="ico-menu1"></ion-icon>
+        <ion-label>Sair</ion-label>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+</ion-content>
